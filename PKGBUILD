@@ -10,7 +10,7 @@ pkgname=('adapta-maia-theme'
 )
 _pkgname=adapta-gtk-theme
 _theme=manjaro-gnome-theme
-pkgver=3.94.0.65
+pkgver=3.94.0.76
 pkgrel=1
 arch=(any)
 url="https://github.com/adapta-project/${_pkgname}"
@@ -30,12 +30,11 @@ makedepends=('libxml2'
 validpgpkeys=('2C675EC71CF31D4652AB608616A443152D7A865E')	     
 source=("${_pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz"
         "${url}/releases/download/${pkgver}/${_pkgname}-${pkgver}.tar.gz.asc"
-        'XfdesktopIconView.patch'
-        'whiskermenu.patch')
-sha256sums=('824e6bc73509eeea2175aeb9c888b5a40b26b2bffa68363b08e3a19f78cb073c'
+        'XfdesktopIconView.patch')
+#        'whiskermenu.patch')
+sha256sums=('8a5569a837ccc602ef98757595784759cbf6c1059dd8fd9ce45fb939473e1ae1'
             'SKIP'
-            'a7b7d3ac846a671a683d7cf8036b3cd81f7e2896d0ab506db3dc2f03b83e3223'
-            '425b3ac39fb8671bb2a47b89ba627b0f3f6b20fb16a422f89814818980ee6205')
+            'a7b7d3ac846a671a683d7cf8036b3cd81f7e2896d0ab506db3dc2f03b83e3223')
             
 prepare() {    
     cd $_pkgname-$pkgver
@@ -48,8 +47,8 @@ prepare() {
     done
 
     # custom two-colored whiskermenu for maia variants
-    cd adapta-maia-theme-$pkgver
-    patch -p1 -i $srcdir/whiskermenu.patch
+#    cd adapta-maia-theme-$pkgver
+#    patch -p1 -i $srcdir/whiskermenu.patch
 }
 
 build_maia-theme() {
