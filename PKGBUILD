@@ -10,7 +10,7 @@ pkgname=('adapta-maia-theme'
 )
 _pkgname=adapta-gtk-theme
 _theme=manjaro-gnome-theme
-pkgver=3.94.0.76
+pkgver=3.94.0.92
 pkgrel=1
 arch=(any)
 url="https://github.com/adapta-project/${_pkgname}"
@@ -32,7 +32,7 @@ source=("${_pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz"
         "${url}/releases/download/${pkgver}/${_pkgname}-${pkgver}.tar.gz.asc"
         'XfdesktopIconView.patch')
 #        'whiskermenu.patch')
-sha256sums=('8a5569a837ccc602ef98757595784759cbf6c1059dd8fd9ce45fb939473e1ae1'
+sha256sums=('b47f0b3f2a2c8f321a53ce72dd15002d2dd1c6a6de2ba78b5921bffdb50138a2'
             'SKIP'
             'a7b7d3ac846a671a683d7cf8036b3cd81f7e2896d0ab506db3dc2f03b83e3223')
             
