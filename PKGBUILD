@@ -10,7 +10,7 @@ pkgname=('adapta-maia-theme'
 )
 _pkgname=adapta-gtk-theme
 _theme=manjaro-gnome-theme
-pkgver=3.94.0.129
+pkgver=3.94.0.149
 pkgrel=1
 arch=(any)
 url="https://github.com/adapta-project/${_pkgname}"
@@ -30,26 +30,22 @@ makedepends=('libxml2'
 validpgpkeys=('2C675EC71CF31D4652AB608616A443152D7A865E')	     
 source=("${_pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz"
         "${url}/releases/download/${pkgver}/${_pkgname}-${pkgver}.tar.gz.asc"
-        'XfdesktopIconView.patch'
-        'whiskermenu.patch')
-sha256sums=('408ff280bbc6c72f062de7f10fe8ba9025ca6149c754ac3aa8387415ee3b69b5'
+        'Xfce-gtk3-Manjaro.patch')
+sha256sums=('db69ef4e2de34d125b8a05fcd8881fc6d54fa7c4c194cadf69200760ed940cac'
             'SKIP'
-            'a7b7d3ac846a671a683d7cf8036b3cd81f7e2896d0ab506db3dc2f03b83e3223'
-            '439d4177ad569d41a30a526e4254429e3d38d96b80e2bf583b6af0b15ea02aac')
+            '43334dce4f801a6626c281b441f0e55b2dfdee25fdcc905837dbb6bc78197c72')
             
-prepare() {    
+prepare() {  
+	
+	#custom two-colored whiskermenu for maia variants and Xfce Desktop icons view
     cd $_pkgname-$pkgver
-    patch -p1 -i $srcdir/XfdesktopIconView.patch
+    patch -p1 -i $srcdir/Xfce-gtk3-Manjaro.patch
 
     cd $srcdir
     #Create separate theme dirs
     for theme in adapta-maia-theme adapta-breath-theme adapta-black-maia-theme adapta-black-breath-theme; do
         cp -r $_pkgname-$pkgver $theme-$pkgver
     done
-
-    # custom two-colored whiskermenu for maia variants
-    cd adapta-maia-theme-$pkgver
-    patch -p1 -i $srcdir/whiskermenu.patch
 }
 
 build_maia-theme() {
